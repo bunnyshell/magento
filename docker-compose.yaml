@@ -99,7 +99,7 @@ services:
         aliases:
           - magento2.docker
     volumes:
-      - './project/pub:/etc/varnish'
+      - './pub:/etc/varnish'
     depends_on:
       - 'web'
 
@@ -121,7 +121,6 @@ services:
   generic:
     hostname: generic.magento2.docker
     image: 'alpine:latest'
-    env_file: ./.docker/config.env
     environment:
       - MAGENTO_RUN_MODE=developer
       - 'PHP_EXTENSIONS=bcmath bz2 calendar exif gd gettext intl mysqli pcntl pdo_mysql soap sockets sysvmsg sysvsem sysvshm opcache zip sodium redis xsl blackfire'
@@ -131,7 +130,7 @@ services:
     image: 'magento/magento-cloud-docker-php:8.1-cli-1.3.2'
     extends: generic
     volumes:
-      - './project:/app:delegated'
+      - './:/app:delegated'
     networks:
       magento-build:
         aliases:
@@ -147,7 +146,7 @@ services:
     image: 'magento/magento-cloud-docker-php:8.1-cli-1.3.2'
     extends: generic
     volumes:
-      - './project:/app:delegated'
+      - './:/app:delegated'
     networks:
       magento:
         aliases:
