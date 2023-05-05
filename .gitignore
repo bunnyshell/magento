@@ -45,3 +45,4 @@
 /var/package/*
 !/var/package/*.xml
 
+vendor
