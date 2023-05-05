@@ -76,6 +76,6 @@ RUN wget https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendma
     && chmod +x mhsendmail_linux_amd64 \
     &&  mv mhsendmail_linux_amd64 /usr/local/bin/mhsendmail
 
-COPY php/conf/php.ini /usr/local/etc/php/
+COPY .docker/php/conf/php.ini /usr/local/etc/php/
 
 WORKDIR /app
